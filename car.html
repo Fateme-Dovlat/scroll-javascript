@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            height: 2000px;
+        }
+        #main img{
+            position: absolute;
+        }
+        #main
+        {
+            width: 1350px;
+            height: 500px;
+            border: 2px  solid;
+            position:fixed;
+           
+            background-size: contain;
+            background-position: center;
+            margin: auto auto;
+        }
+        #day{
+            width: 1350px;
+            height: 500px;
+            z-index: 2;
+        }
+        #car
+        {
+            width: 200px;
+            height: 100px;
+            margin-top: 300px;
+            margin-left: 15px;
+            z-index: 3;
+        }
+        #star
+        {
+            width: 300px;
+            height: 200px;
+            top: 10px;
+            margin-left: 100px;
+            z-index: 2;
+        }
+        #sun
+        {
+            width: 100px;
+            height: 100px;
+            margin-top: 150px;
+            margin-left: 200px;
+            z-index: 3;
+        }
+        #moon
+        {
+            width: 200px;
+            height: 200px;
+            bottom: 500px;
+            left: 900px;
+            z-index: 2;
+        }
+        #rubber1
+        {
+            width: 120px;
+            height: 80px;
+            top: 335px;
+            z-index: 3;
+        }
+        #rubber2
+        {
+            width: 120px;
+            height: 80px;
+            top: 335px;
+            left: 115px;
+            z-index: 3;
+        }
+        #carlight
+        {
+            width: 200px;
+            height: 100px;
+            top: 285px;
+            left: 130px;
+            z-index: 3;
+        }
+        #night{
+            width: 1350px;
+            height: 500px;
+            z-index: 1;
+        }
+
+    </style>
+ 
+</head>
+<body>
+    <div id="main">
+        <img src="../cargame/images/car.png" id="car" />
+        <img src="../cargame/images/star.png" id="star" />
+        <img src="../cargame/images/sun.png" id="sun" />
+        <img src="../cargame/images/moon.png" id="moon" />
+        <img src="../cargame/images/rubber.png" id="rubber1" />
+        <img src="../cargame/images/rubber.png" id="rubber2" />
+        <img src="../cargame/images/carlight.png" id="carlight" />
+        <img src="../cargame/images/night.jpg" id="night" />
+        <img src="../cargame/images/day.jpg" id="day" />
+    </div>
+    <script>
+        window.onscroll=function(){
+            var n=window.pageYOffset;
+            document.getElementById("car").style.left=n+"px";
+            document.getElementById("rubber1").style.transform="rotate("+n+"deg)";
+            document.getElementById("rubber2").style.transform="rotate("+n+"deg)";
+            document.getElementById("rubber1").style.left=n+"px";
+            document.getElementById("rubber2").style.left=(115+n)+"px";
+            document.getElementById("carlight").style.left=(n+130)+"px";
+            
+            if(window.pageYOffset>=0 && window.pageYOffset<1000)
+            {
+                document.getElementById("sun").style.bottom=(n+250)+"px";
+                document.getElementById("main").style.backgroundImage="day";
+            }
+            if(window.pageYOffset>=1000 && window.pageYOffset<=2000)
+            {
+                document.getElementById("moon").style.top=(500+n)+"px";
+                document.getElementById("day").style.display="none";
+                document.getElementById("sun").style.display="none";
+                
+            }
+
+        }
+    </script>
+    
+    
+</body>
+</html>
